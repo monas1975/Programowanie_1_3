@@ -1,5 +1,6 @@
 import sda.java12poz.structures.Element;
 import sda.java12poz.structures.MyList;
+import sda.java12poz.structures.MyStack;
 
 import java.util.Arrays;
 import java.util.SortedSet;
@@ -55,7 +56,22 @@ public class Main {
         list.append(4);
         System.out.println(list);
 
-        }
+        list.insertBefore(list.head.next, "intruz");
+        System.out.println(list);
+
+        list.delate(list.tail.prev);
+        System.out.println(list);
+//
+  //      list.insertAfter(list.tail.next, "intruz2");
+  //      System.out.println(list);
+
+        // pobawic sie z append
+
+        //stos
+        System.out.println("STOS");
+        System.out.println(MyStack.convertNumber(5,2));
+
+    }
 
 
     }

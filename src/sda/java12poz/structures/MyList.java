@@ -51,6 +51,53 @@ public class MyList <T> {
         return this;
     }
 
+    public MyList<T> insertBefore(Element<T> nextElement, T object){
+        Element<T> p = new Element();
+        p.data = object;
+        p.prev = nextElement.prev;
+        p.next = nextElement;
+        nextElement = p;
+        count++;
+        if(p.prev !=null){
+            p.prev.next = p;
+        }else{
+            head = p ;
+        }
+        return this;
+    }
+
+    public MyList<T> insertAfter(Element<T> prevElement, T object){
+       Element<T> p = new Element<>();
+       p.data = object;
+      p.prev = prevElement;
+      p.next = prevElement.next;
+      prevElement = p;
+      count++;
+      if(p.prev !=null){
+          p.prev.prev = p;
+      }else
+          head = p;
+        return this;
+    }
+
+    public MyList<T> delate(Element<T> e){
+        count--;
+        if (e.prev !=null) {
+           e.prev.next = e.next;
+        }else{
+            head  = e.next;
+            //head = e.next;
+        }
+        if (e.next !=null){
+            e.next.prev= e.prev;
+        }else{
+            tail = e.prev;
+        }
+
+
+        return this;
+    }
+
     @Override
     public String toString() {
         String result = "";
