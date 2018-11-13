@@ -73,9 +73,5 @@ public class Tablice2 {
     }
 
 
-    public static int[] whatMoney(double[] tab, double amount){
-       int[] array ={0};
 
-        return array;
-    }
 }
