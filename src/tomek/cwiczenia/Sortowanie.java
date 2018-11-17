@@ -1,5 +1,7 @@
 package tomek.cwiczenia;
 
+import java.util.Random;
+
 public class Sortowanie {
 
     public static void main(String[] args){
@@ -14,8 +16,26 @@ public class Sortowanie {
         showArray(opositOrder(array));
         showArray(changeFirstWithLast(array));
 
+        String[] text = {"Ala", "ma","kota", "dddddddddd"};
+        System.out.println(longestText(text));
+        System.out.println("Tablica nieposortowana");
+        int[] array1 = randomArrayGen(20,-20,20);
+        showArray(array1);
+        System.out.println("sortowanie babelkowe");
+        sortBabelkowe(array1);
+        showArray(array1);
 
 
+
+    }
+    public static int[] randomArrayGen(int n, int low, int high){
+        int[] array = new int[n];
+        Random random = new Random();
+        for (int i=0; i <array.length;i++){
+            //array[i]= random.nextInt(11)-5;
+            array[i]= random.nextInt(Math.abs(low)+Math.abs(high))-Math.abs(low);
+        }
+        return array;
     }
 
     public static void showArray(int[] array){
@@ -45,5 +65,38 @@ public class Sortowanie {
         changedAray[changedAray.length-1] = temp;
         return changedAray;
     }
+
+    public static String longestText(String[] array){
+        String longest = array[0];
+
+        for(int i=0; i<array.length;i++){
+            if (array[i].length() > longest.length() ){
+                longest = array[i];
+            }
+        }
+        return longest;
+    }
+
+    public static void sortBabelkowe(int[] array)
+    {
+        int temp;
+        for(int i=0; i<array.length;i++){
+
+            for(int j=0; j<array.length-1;j++){
+                if (array[j]>array[j+1]){
+                    temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+
+        }
+
+
+    }
+
+    public static void insertSort(int[] array) {
+    }
+
 
 }
